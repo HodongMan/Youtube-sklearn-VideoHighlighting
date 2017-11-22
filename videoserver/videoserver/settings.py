@@ -25,7 +25,9 @@ SECRET_KEY = '75*j99c$q9pcyeb*-nn%%35z2@7c#t4wxbp)21i#alz-&^6tvm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*'
+]
 
 
 # Application definition
@@ -37,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'response.apps.ResponseConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -49,7 +53,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = [
+    'localhost',
+]
+
 
 ROOT_URLCONF = 'videoserver.urls'
 

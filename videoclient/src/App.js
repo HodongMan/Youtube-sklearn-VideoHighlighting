@@ -12,6 +12,13 @@ class App extends Component {
         event.target.seekTo(200);
     }
 
+    componentDidMount(){
+        fetch("http://localhost/api/response")
+        .then((response) => response.json())
+        .then((responseJson) => console.log(responseJson))
+        .catch((error) => console.log(error));
+    }
+
     render() {
 
         const opts = {
