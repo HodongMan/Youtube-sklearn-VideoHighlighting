@@ -6,11 +6,10 @@ class App extends Component {
     printState(event){
         console.log(event.target);
         console.log(event.target.getCurrentTime());
-        console.log(event.target.getDuration());
     }
 
     onReady(event){
-        event.target.pauseVideo();
+        event.target.seekTo(200);
     }
 
     render() {
@@ -19,7 +18,7 @@ class App extends Component {
             height: '390',
             width: '640',
             playerVars: { // https://developers.google.com/youtube/player_parameters
-                autoplay: 1
+                autoplay: 1,
             }
         };
 
