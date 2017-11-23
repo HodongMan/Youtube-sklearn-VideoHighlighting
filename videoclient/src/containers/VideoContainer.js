@@ -9,13 +9,24 @@ export default class VideoContainer extends Component{
         super(props);
 
         this.state = {
-
+            highlight : [],
+            youtube : {}
         };
         this.onVideoSectionClick = this.onVideoSectionClick.bind(this);
+        this.moveVideoTimeBySeekTo = this.moveVideoTimeBySeekTo.bind(this);
+        this.setYoutubeAPIObject = this.setYoutubeAPIObject.bind(this);
     }
 
 
     componentDidMount(){
+
+        getHighlightsByVideoId("1")
+        .then(responseJson => {
+            this.setState({
+                highlight : responseJson.data.split(" ")
+            });
+        })
+        .catch(error => console.log(error));
 
     }
 
@@ -28,6 +39,17 @@ export default class VideoContainer extends Component{
         .catch((error) => console.log(error));
     }
 
+    moveVideoTimeBySeekTo(time){
+
+        this.state.youtube.seekTo(200);
+    }
+
+    setYoutubeAPIObject(event){
+        this.setState({
+            youtube : event.target
+        });
+    }
+
     render() {
 
         return (
@@ -35,7 +57,11 @@ export default class VideoContainer extends Component{
                 <Navigation/>
                 <Youtube
                     video_id={"gQTQxEp7OLc"}
+                    id={"youtube"}
                     onVideoSectionClick={this.onVideoSectionClick}
+                    highlight={this.state.highlight}
+                    setYoutubeAPIObject={this.setYoutubeAPIObject}
+                    moveVideoTimeBySeekTo={this.moveVideoTimeBySeekTo}
                 />
                 <Footer/>
             </div>

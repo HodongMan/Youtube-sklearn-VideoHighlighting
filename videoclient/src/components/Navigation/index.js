@@ -6,7 +6,7 @@ export default class Navigation extends PureComponent{
 
     render(){
         return(
-            <nav className="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+            <nav className="navbar navbar-default topnav" role="navigation">
                 <div className="container topnav">
                     <div className="navbar-header">
                         <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">

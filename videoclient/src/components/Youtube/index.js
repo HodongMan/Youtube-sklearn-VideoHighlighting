@@ -1,35 +1,47 @@
 import React, {PureComponent} from 'react';
 import YouTube from 'react-youtube';
 
+import Highlight from '../Highlight';
 
 export default class Youtube extends PureComponent{
 
-    printState(event){
-        console.log(event.target);
-        console.log(event.target.getCurrentTime());
-    }
-
-    onReady(event){
-        event.target.seekTo(200);
-    }
-
     render(){
         const opts = {
-            height: '390',
-            width: '640',
+            height: '600',
+            width: '800',
             playerVars: { // https://developers.google.com/youtube/player_parameters
                 autoplay: 1,
             },
         };
 
         return(
-            <YouTube
-                videoId={this.props.video_id}
-                id="youtube"
-                opts={opts}
-                onReady={this.onReady}
-                onPause={this.props.onVideoSectionClick}
-            />
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-md-9'>
+                        <YouTube
+                            videoId={this.props.video_id}
+                            id="youtube"
+                            opts={opts}
+                            onReady={this.props.setYoutubeAPIObject}
+                            onPause={this.props.onVideoSectionClick}
+                        />
+                    </div>
+                    <div className='col-md-3'>
+                        {
+                            this.props.highlight.map((item, index) => {
+
+                                return(
+                                    <Highlight
+                                        key={index}
+                                        time={item}
+                                        moveVideoTimeBySeekTo={this.props.moveVideoTimeBySeekTo}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </div>
         );
     }
 }

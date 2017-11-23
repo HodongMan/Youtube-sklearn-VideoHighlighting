@@ -12,5 +12,5 @@ export function saveResponseToVideoClick(video_id, pointed_time){
 }
 
 export function getHighlightsByVideoId(video_id){
-    return axios.get(`${kUrl}api/response/`);
+    return axios.get(`${kUrl}api/highlight/`);
 }
