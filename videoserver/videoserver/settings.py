@@ -55,11 +55,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
-
 CORS_ORIGIN_WHITELIST = [
     'localhost',
 ]
-
+#CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'videoserver.urls'
 

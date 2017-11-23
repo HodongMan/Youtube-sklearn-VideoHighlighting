@@ -3,6 +3,14 @@ import YouTube from 'react-youtube';
 
 class App extends Component {
 
+
+    constructor(props){
+
+        super(props);
+        this.state = {
+            data : "",
+        };
+    }
     printState(event){
         console.log(event.target);
         console.log(event.target.getCurrentTime());
@@ -15,7 +23,7 @@ class App extends Component {
     componentDidMount(){
         fetch("http://localhost/api/response")
         .then((response) => response.json())
-        .then((responseJson) => console.log(responseJson))
+        .then((responseJson) => {this.setState({data : responseJson[0].video_id});console.log(responseJson[0])})
         .catch((error) => console.log(error));
     }
 
@@ -30,6 +38,8 @@ class App extends Component {
         };
 
         return (
+            <div>
+            <h1>{this.state.data}</h1>
             <YouTube
                 videoId="gQTQxEp7OLc"
                 opts={opts}
@@ -42,6 +52,8 @@ class App extends Component {
                 onPlaybackRateChange={this.printState}       // defaults -> noop
                 onPlaybackQualityChange={this.printState}
             />
+
+            </div>
         );
     }
 }
