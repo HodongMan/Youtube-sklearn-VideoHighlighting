@@ -7,7 +7,7 @@ So you can choose highlight and application recommand highlight period according
 
 
 ## ScreenShot
-![](./screenshot/1.jpeg)
+![](./screenshot/1.png)
 
 ---
 
