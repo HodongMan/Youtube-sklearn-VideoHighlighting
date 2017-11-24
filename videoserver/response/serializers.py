@@ -24,5 +24,6 @@ class ResponseHighlightSerializer(serializers.HyperlinkedModelSerializer):
             'video_id',
             'start_time',
             'end_time',
+            'update_time',
             'created',
         )

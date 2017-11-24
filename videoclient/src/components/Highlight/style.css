@@ -26,6 +26,21 @@
 	z-index:10;
 }
 
+.like{
+  color:#666;
+  text-decoration:none;
+  transition:all 0.3s
+}
+
+.like:hover{
+  color:#755
+}
+
+.value .active{
+  color:#d02 !important;
+  text-shadow:#faa 0 0 16px;
+}
+
 .rad-info-box .heading{
 	font-size:1.2em;
 	font-weight:300;

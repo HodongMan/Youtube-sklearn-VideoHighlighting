@@ -33,7 +33,7 @@ export default class Youtube extends PureComponent{
                                 return(
                                     <Highlight
                                         key={index}
-                                        time={item}
+                                        time={item.start_time}
                                         moveVideoTimeBySeekTo={this.props.moveVideoTimeBySeekTo}
                                     />
                                 )

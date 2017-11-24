@@ -20,10 +20,11 @@ export default class VideoContainer extends Component{
 
     componentDidMount(){
 
-        getHighlightsByVideoId("1")
+        getHighlightsByVideoId("gQTQxEp7OLc")
         .then(responseJson => {
+            console.log(responseJson);
             this.setState({
-                highlight : responseJson.data.split(" ")
+                highlight : responseJson.data
             });
         })
         .catch(error => console.log(error));
@@ -41,7 +42,7 @@ export default class VideoContainer extends Component{
 
     moveVideoTimeBySeekTo(time){
 
-        this.state.youtube.seekTo(200);
+        this.state.youtube.seekTo(time);
     }
 
     setYoutubeAPIObject(event){

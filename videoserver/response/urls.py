@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from .views import ResponseList, ResponseDetail, ResponseVideoIdList
-from .views import ResponseHighlightList, ResponseHighlightDetail,ResponseHighlightVideoIdList
+from .views import ResponseHighlightList, ResponseHighlightDetail,ResponseHighlightVideoIdList, ResponseHighlightSet
 from .views import ResponseHighlightTestDataList
 
 urlpatterns = [
@@ -11,5 +11,5 @@ urlpatterns = [
     url(r'^highlight/video/(?P<videoid>.+)/$', ResponseHighlightVideoIdList.as_view(), name=ResponseHighlightVideoIdList.name),
     url(r'^highlight(?P<pk>[0-9]+)/$', ResponseHighlightDetail.as_view(), name=ResponseHighlightDetail.name),
     url(r'^highlight/test/$', ResponseHighlightTestDataList, name='response-test-list'),
-
+    url(r'^highlight/set/(?P<videoid>.+)/$', ResponseHighlightSet.as_view(), name=ResponseHighlightSet.name),
 ]
